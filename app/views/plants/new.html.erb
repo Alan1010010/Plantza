@@ -1,2 +1,9 @@
 <h1>Plants#new</h1>
-<p>Find me in app/views/plants/new.html.erb</p>
+<%= simple_form_for @plant do |f| %>
+  <%= f.input :name  %>
+  <%= f.input :address %>
+  <%= f.input :price %>
+
+  <%= f.button :submit, class: "btn-primary" %>
+<%end %>
+<!-- <p>Find me in app/views/plants/new.html.erb</p> -->
