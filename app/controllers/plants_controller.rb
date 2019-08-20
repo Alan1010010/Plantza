@@ -1,6 +1,12 @@
 class PlantsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
-    @plants = policy_scope(Plant).order(created_at: :desc)
+    if params[:search].nil?
+      @plants = policy_scope(Plant).order(created_at: :desc)
+    else
+      @plants = policy_scope(Plant).where("name ILIKE ?", params[:search]).order(created_at: :desc)
+    end
   end
 
   def show
