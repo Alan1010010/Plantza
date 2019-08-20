@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'bookings/index'
-  get 'bookings/create'
   resources :plants, only: [:show, :new, :create, :index] do
     resources :bookings, only: [:create]
   end

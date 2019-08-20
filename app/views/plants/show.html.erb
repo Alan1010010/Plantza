@@ -1,1 +1,11 @@
 <h1>here it is</h1>
+
+
+
+
+<%= simple_form_for [@plant, @booking] do |f| %>
+  <%= f.input :start_date%>
+  <%= f.input :end_date %>
+  <%= f.input :status %>
+  <%= f.button :submit, class: "btn-success" %>
+<% end %>
