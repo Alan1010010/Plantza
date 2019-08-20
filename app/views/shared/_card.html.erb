@@ -1,22 +1,21 @@
-<div class="cards">  
+<div class="cards">
   <% @plants.each do |plant| %>
     <%= link_to plant_path(plant), class: 'card-wrapper' do %>
       <div class="card clickable">
-        <img src="<%= image_path 'snake_plant.png' %>" class="card-img-top" alt="...">
+        <div class="card-img-top">
+          <%= cl_image_tag plant.photo, height: 225, width: 300, crop: :fill %>
+        </div>
         <img class="avatar-bordered" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
         <div class="card-body">
           <div class="card-info">
             <h5 class="card-title"><%= plant.name %></h5>
             <p class="card-text">£<%= plant.price %></p>
           </div>
-          <div class="card-info">
-            <p>User: <%= @user %>
-            <p class="card-text"> <%= plant.address %></p>
+          <div class="rating-container">
+            <p class="card-text">Rating <%= @reviews %></p>
           </div>
-          <p>Reviews <%= @reviews %>
         </div>
       </div>
     <% end %>
   <% end %>
-</div>  
-
+</div>
