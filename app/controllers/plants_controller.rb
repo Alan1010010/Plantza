@@ -3,15 +3,16 @@ class PlantsController < ApplicationController
 
   def index
     if params[:search].nil?
-      @plants = Plant.all
+      @plants = policy_scope(Plant).order(created_at: :desc)
     else
-      @plants = Plant.where("name ILIKE ?", params[:search])
+      @plants = policy_scope(Plant).where("name ILIKE ?", params[:search]).order(created_at: :desc)
     end
   end
 
   def show
     @plant = Plant.find(params[:id])
     @booking = Booking.new
+    authorize @plant
   end
 
   def new
@@ -20,6 +21,8 @@ class PlantsController < ApplicationController
 
   def create
     @plant = Plant.new(plant_params)
+    @plant.user = current_user
+    authorize @plant
     if @plant.save
       redirect_to plant_path(@plant)
     else
@@ -34,6 +37,6 @@ class PlantsController < ApplicationController
   private
 
   def plant_params
-    params.include(:plant).permit(:name, :address, :price)
+    params.require(:plant).permit(:name, :address, :price, :photo)
   end
 end
