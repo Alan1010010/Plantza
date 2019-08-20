@@ -1,8 +1,11 @@
+<h1>My Plants</h1>
+
+
 <div class="cards">
   <% @plants.each do |plant| %>
     <%= link_to plant_path(plant), class: 'card-wrapper' do %>
       <div class="card clickable">
-        <img src="<%= image_path 'snake_plant.png' %>" class="card-img-top" alt="...">
+        <%= cl_image_tag plant.photo, alt: "alttext", class: "card-img-top" %>
         <img class="avatar-bordered" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
         <div class="card-body">
           <div class="card-info">
@@ -10,13 +13,18 @@
             <p class="card-text">£<%= plant.price %></p>
           </div>
           <div class="card-info">
-            <p>User: <%= @user %></p>
             <p class="card-text"> <%= plant.address %></p>
           </div>
-          <p>Reviews <%= @reviews %></p>
         </div>
       </div>
     <% end %>
   <% end %>
 </div>
+
+
+<% if policy(Plant).create? %>
+  <%= link_to "New plant", new_plant_path %>
+<% end %>
+
+
 
