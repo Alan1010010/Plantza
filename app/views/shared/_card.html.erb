@@ -1,4 +1,4 @@
-<div class="cards">  
+<div class="cards">
   <% @plants.each do |plant| %>
     <%= link_to plant_path(plant), class: 'card-wrapper' do %>
       <div class="card clickable">
@@ -9,14 +9,11 @@
             <h5 class="card-title"><%= plant.name %></h5>
             <p class="card-text">£<%= plant.price %></p>
           </div>
-          <div class="card-info">
-            <p>User: <%= @user %>
-            <p class="card-text"> <%= plant.address %></p>
+          <div class="rating-container">
+            <p class="card-text">Rating <%= @reviews %></p>
           </div>
-          <p>Reviews <%= @reviews %>
         </div>
       </div>
     <% end %>
   <% end %>
-</div>  
-
+</div>
