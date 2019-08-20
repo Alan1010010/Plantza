@@ -1,16 +1,35 @@
-<h1>here it is</h1>
-
-
-
-<%= simple_form_for [@plant, @booking] do |f| %>
-  <%= f.input :start_date%>
-  <%= f.input :end_date %>
-  <%= f.input :status %>
-  <%= f.button :submit, class: "btn-success" %>
-<% end %>
-
-
-
-  <% if policy(@plant).edit? %>
-    <%#= link_to "Update", edit_plant_path(@plant) %>
-<% end %>
+<div class="container-fluid">
+  <div class="left-side-show carousel-imgs booking-form">
+    <%= render './shared/carousel' %>
+  </div>
+  <div class="right-side-show plant-infos">
+    <div class="main-info-show">
+      <div class="plant-basic-info">
+        <h1><%= @plant.name %></h1>
+        <h3><%= @plant.address %>, (£<%= @plant.price %>)</h3>
+      </div>
+      <div class="additional-booking-details">
+        <div class="user-info-show">
+          <img class="avatar-bordered-show" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
+          <span class="user-contact-show">
+            <p>User:<%= @user %></p>
+          </span>
+        </div>
+        <div class="plant-description-show">
+          <p><strong>Description</strong></p>
+          <p>insert plant's description <%= @description %></p>
+        </div>
+      </div>
+    </div>
+    <div class="proceeding-options">
+      <%= simple_form_for [@plant, @booking] do |f| %>
+        <%= f.input :start_date%>
+        <%= f.input :end_date %>
+        <%= f.input :status %>
+        <div class="buttons-proceed">
+          <%= f.button :submit, class: "btn-success" %>
+          <%= link_to "Back to plants", plants_path, class: "btn btn-primary" %>
+        </div>
+      <% end %>
+  </div>
+</div>
