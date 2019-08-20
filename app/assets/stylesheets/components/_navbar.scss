@@ -20,6 +20,7 @@
 #logo {
   font-size: 30px;
   color: white;
+  margin-left: 10px;
 }
 
 #nav-left-side {
@@ -28,4 +29,11 @@
 
 #hover-pointer {
   cursor: pointer;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  color: white;
+  margin-right: 10px;
 }

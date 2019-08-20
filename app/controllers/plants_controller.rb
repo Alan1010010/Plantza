@@ -1,6 +1,12 @@
 class PlantsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
-    @plants = Plant.all
+    if params[:search].nil?
+      @plants = Plant.all
+    else
+      @plants = Plant.where("name ILIKE ?", params[:search])
+    end
   end
 
   def show
