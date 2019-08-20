@@ -5,6 +5,7 @@ class PlantsController < ApplicationController
 
   def show
     @plant = Plant.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
@@ -19,6 +20,10 @@ class PlantsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def my_plants
+    @plants = current_user.plants
   end
 
   private
