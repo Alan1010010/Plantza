@@ -1,0 +1,19 @@
+#steps {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.how-it-works {
+  text-align: center;
+  background-color: white;
+  padding: 30px;
+}
+
+#steps-img-resize {
+  width: 300px;
+}
+
+.step {
+  width: 400px;
+}

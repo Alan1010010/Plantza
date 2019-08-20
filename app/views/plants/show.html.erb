@@ -2,10 +2,11 @@
 
 
 
-
 <%= simple_form_for [@plant, @booking] do |f| %>
   <%= f.input :start_date%>
   <%= f.input :end_date %>
   <%= f.input :status %>
   <%= f.button :submit, class: "btn-success" %>
 <% end %>
+
+<a href="#" class="btn btn-primary">Reserve</a>
