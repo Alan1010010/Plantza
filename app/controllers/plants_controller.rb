@@ -24,9 +24,13 @@ class PlantsController < ApplicationController
     end
   end
 
+  def my_plants
+    @plants = current_user.plants
+  end
+
   private
 
   def plant_params
-    params.include(:plant).permit(:name, :address, :price)
+    params.require(:plant).permit(:name, :address, :price, :photo)
   end
 end

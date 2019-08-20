@@ -1,1 +1,3 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+A market place app for renting plants (airbnb for plants)
+
+Created during the le wagon fullstack coding bootcamp using rails.
