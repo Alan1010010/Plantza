@@ -20,6 +20,10 @@ class PlantsController < ApplicationController
     end
   end
 
+  def my_plants
+    @plants = current_user.plants
+  end
+
   private
 
   def plant_params
