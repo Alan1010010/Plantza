@@ -1,6 +1,5 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -10,6 +9,31 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
-.brand-txt {
-  font-family: 'Lexend Tera', sans-serif;
+
+.logo-txt {
+  font-family: 'Rubik', sans-serif;
+  font-size: 30px;
+  margin-left: 10px;
+  color: white;
+}
+
+#logo {
+  font-size: 30px;
+  color: white;
+  margin-left: 10px;
+}
+
+#nav-left-side {
+  display: flex;
+}
+
+#hover-pointer {
+  cursor: pointer;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  color: white;
+  margin-right: 10px;
 }

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :plants, only: [:show, :new, :create, :index] do
     resources :bookings, only: [:create]
+    collection do
+      get "my_plants", to: 'plants#my_plants'
+    end
   end
   resources :bookings, only: [:index]
   devise_for :users
