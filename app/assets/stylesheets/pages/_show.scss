@@ -1,0 +1,63 @@
+.container-fluid {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.right-side-show {
+  flex-grow: 1;
+}
+
+.avatar-bordered-show {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+  align-self: center;
+  margin-right: 20px;
+}
+
+.carousel-img {
+  width: 500px;
+  height: 700px;
+  background-size: cover;
+}
+.carousel-inner {
+  max-width: 500px;
+}
+
+.left-side-show {
+  margin: 0 20px;
+  padding: 0 20px;
+}
+.user-info-show {
+  display: flex;
+  margin-top: 20px;
+  padding: 10px;
+}
+.user-contact-show {
+  line-height: 5px;
+  align-self: center;
+}
+
+.additional-booking-details {
+  border-bottom: 3px solid white;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.plant-basic-info {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 3px solid white;
+}
+
+.buttons-proceed {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+
