@@ -21,11 +21,15 @@
         </div>
       </div>
     </div>
-    <span><%= simple_form_for [@plant, @booking] do |f| %>
-      <%= f.input :start_date%>
-      <%= f.input :end_date %>
-      <%= f.input :status %>
-      <%= f.button :submit, class: "btn-success" %>
-    <% end %></span>
+    <div class="proceeding-options">
+      <%= simple_form_for [@plant, @booking] do |f| %>
+        <%= f.input :start_date%>
+        <%= f.input :end_date %>
+        <%= f.input :status %>
+        <div class="buttons-proceed">
+          <%= f.button :submit, class: "btn-success" %>
+          <%= link_to "Back to plants", plants_path, class: "btn btn-primary" %>
+        </div>
+      <% end %>
   </div>
 </div>
