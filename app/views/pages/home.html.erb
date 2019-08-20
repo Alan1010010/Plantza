@@ -1,2 +1,72 @@
-<h1>Platza</h1>
-<p>Testing</p>
+<div class="main-container">
+  <div class="masthead">
+    <div class="header">
+      <h1>
+        A platform for plant rental
+      </h1>
+      <h5>
+        Renting plants has never been easier: just pick a plant you like and send a request. If there's a match, you'll be in possession of a temporary plant in no time!
+      </h5>
+      <div class="search">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputStart">Start date</label>
+              <input type="text" class="form-control" id="inputStart" placeholder="12-Jan-19">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">End date</label>
+              <input type="text" class="form-control" id="inputEnd" placeholder="19-Jan-19">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPostcode">Postcode</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="WC1V 7SE">
+          </div>
+          <div class="form-group">
+            <label for="inputState">Type</label>
+            <select id="inputState" class="form-control">
+              <option selected>Plant 1</option>
+              <option>Plant 2</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+  <div class="how-it-works">
+    <h2>
+      How it works?
+    </h2>
+    <div id="steps">
+      <div class="step">
+        <%= image_tag "browse", alt: "alttext", id:"steps-img-resize" %>
+        <p>
+          Browse available plants near you; choose from over 100 different varieties.
+        </p>
+      </div>
+      <div class="step">
+        <%= image_tag "request", alt: "alttext", id:"steps-img-resize" %>
+        <p>
+          Submit a request to rent a plant; a gardener will get back to you shortly.
+        </p>
+      </div>
+      <div class="step">
+        <%= image_tag "delivery", alt: "alttext", id:"steps-img-resize" %>
+        <p>
+          If your request is accepted, your plant will be delivered; keep it alive!
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="listing">
+    <h2>
+      Most popular plants
+    </h2>
+    <div class="cards">
+
+    </div>
+  </div>
+</div>
