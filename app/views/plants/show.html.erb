@@ -9,4 +9,8 @@
   <%= f.button :submit, class: "btn-success" %>
 <% end %>
 
-<a href="#" class="btn btn-primary">Reserve</a>
+
+
+  <% if policy(@plant).edit? %>
+    <%= link_to "Update", edit_plant_path(plant) %>
+<% end %>
