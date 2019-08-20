@@ -1,9 +1,12 @@
-<h1>Plants#new</h1>
+<h1>Add a new plant</h1>
+<div class="form">
 <%= simple_form_for @plant do |f| %>
   <%= f.input :name  %>
   <%= f.input :address %>
   <%= f.input :price %>
-
-  <%= f.button :submit, class: "btn-primary" %>
+  <%= f.input :photo, class: "insert-photo" %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.button :submit, class: "btn btn-primary" %>
 <%end %>
+</div>
 <!-- <p>Find me in app/views/plants/new.html.erb</p> -->
