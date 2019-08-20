@@ -12,7 +12,9 @@
   <h2>Previous bookings</h2>
 </div>
 
-
+<% if policy(Plant).create? %>
+  <%= link_to "New plant", new_plant_path %>
+<% end %>
 
 
 

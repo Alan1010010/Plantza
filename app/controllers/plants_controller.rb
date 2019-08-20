@@ -1,11 +1,12 @@
 class PlantsController < ApplicationController
   def index
-    @plants = Plant.all
+    @plants = policy_scope(Plant).order(created_at: :desc)
   end
 
   def show
     @plant = Plant.find(params[:id])
     @booking = Booking.new
+    authorize @plant
   end
 
   def new
