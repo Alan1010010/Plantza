@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   has_many :plants
   has_many :bookings
-  has_many :plants, through: :bookings
+  has_many :booked_plants, through: :bookings, source: :plant
 end
