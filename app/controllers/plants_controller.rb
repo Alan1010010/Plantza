@@ -33,6 +33,7 @@ class PlantsController < ApplicationController
 
   def my_plants
     @plants = current_user.plants
+    skip_authorization
   end
 
   private
