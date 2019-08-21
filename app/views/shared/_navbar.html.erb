@@ -17,7 +17,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
-          Hello, [user.name]!
+          Hello, <%= current_user.firstname %>!
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", id: "hover-pointer", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -32,12 +32,12 @@
       <% else %>
         <li class="nav-item">
           <%= link_to new_user_registration_path, class: "nav-link" do %>
-          <i class="fas fa-user-plus"></i>
+          Sign up
           <% end %>
         </li>
         <li class="nav-item">
         <%= link_to new_user_session_path, class: "nav-link" do %>
-          <i class="fas fa-sign-in-alt"></i>
+          Log in
           <% end %>
         </li>
       <% end %>
