@@ -17,6 +17,7 @@ class PlantsController < ApplicationController
 
   def new
     @plant = Plant.new
+    authorize @plant
   end
 
   def create
@@ -32,11 +33,12 @@ class PlantsController < ApplicationController
 
   def my_plants
     @plants = current_user.plants
+    skip_authorization
   end
 
   private
 
   def plant_params
-    params.require(:plant).permit(:name, :address, :price, :photo)
+    params.require(:plant).permit(:name, :address, :description, :price, :photo)
   end
 end
