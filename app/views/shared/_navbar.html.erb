@@ -17,10 +17,12 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
-          Hello, [user.name]!
+          Hello, <%= current_user.email %>!
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", id: "hover-pointer", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
+          <%= cl_image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown hover-pointer", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Add a plant", new_plant_path, class: "dropdown-item" %>
             <%= link_to "My plants", my_plants_plants_path, class: "dropdown-item" %>
