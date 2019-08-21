@@ -1,4 +1,14 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "pages/bookings-index";
+
+
+#map {
+  border-radius: 5px;
+  margin-left: 250px;
+  margin-bottom: 100px;
+  box-shadow: 4px 8px 8px #888888;
+}
+
 @import "show"
+
