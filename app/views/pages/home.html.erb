@@ -10,29 +10,15 @@
       <div class="search">
         <form>
           <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputStart">Start date</label>
-              <input type="text" class="form-control" id="inputStart" placeholder="12-Jan-19">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputPassword4">End date</label>
-              <input type="text" class="form-control" id="inputEnd" placeholder="19-Jan-19">
-            </div>
+
           </div>
           <div class="form-group">
-            <label for="inputPostcode">Postcode</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="WC1V 7SE">
+            <label for="inputPostcode">City</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Paris">
           </div>
-          <div class="form-group">
-            <label for="inputState">Type</label>
-            <select id="inputState" class="form-control">
-              <option selected>Plant 1</option>
-              <option>Plant 2</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary">Search</button>
+
         </form>
-          <%= button_to "All Plants", plants_path, method: :get, class:'btn btn-primary all-plants' %>
+          <%= button_to "Search", plants_path, method: :get, class:'btn btn-primary all-plants' %>
       </div>
     </div>
 
@@ -86,6 +72,6 @@
           </div>
         <% end %>
       <% end %>
-    </div>  
+    </div>
   </div>
 </div>
