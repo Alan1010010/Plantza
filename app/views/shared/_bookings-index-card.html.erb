@@ -11,8 +11,11 @@
             <h5 class="card-title"><%= booking.plant.name %></h5>
             <p class="card-text">£<%= booking.plant.price %></p>
           </div>
+          <div class="status-container">
+            <p class="card-text">Status: <%= booking.status %></p>
+          </div>
           <div class="rating-container">
-            <p class="card-text">Rating <%= @reviews %></p>
+            <p class="card-text">Rating: <%= @reviews %></p>
           </div>
         </div>
       </div>
