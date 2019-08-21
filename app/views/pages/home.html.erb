@@ -2,36 +2,23 @@
   <div class="masthead">
     <div class="header">
       <h1>
-        A platform for plant rental
+        Renting plants has never been easier
       </h1>
       <h5>
-        Renting plants has never been easier: just pick a plant you like and send a request. If there's a match, you'll be in possession of a temporary plant in no time!
+        Plantza facilitates the rental of plants for all occassions. Jungle-themed birthday party? Temporary air purification? We've got you covered.
       </h5>
       <div class="search">
         <form>
           <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputStart">Start date</label>
-              <input type="text" class="form-control" id="inputStart" placeholder="12-Jan-19">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputPassword4">End date</label>
-              <input type="text" class="form-control" id="inputEnd" placeholder="19-Jan-19">
-            </div>
+
           </div>
           <div class="form-group">
-            <label for="inputPostcode">Postcode</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="WC1V 7SE">
+            <label for="inputPostcode">City</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Paris">
           </div>
-          <div class="form-group">
-            <label for="inputState">Type</label>
-            <select id="inputState" class="form-control">
-              <option selected>Plant 1</option>
-              <option>Plant 2</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary">Search</button>
+
         </form>
+          <%= button_to "Search", plants_path, method: :get, class:'btn btn-primary all-plants' %>
       </div>
     </div>
 
@@ -66,7 +53,25 @@
       Most popular plants
     </h2>
     <div class="cards">
-
+      <% @top_plants.each do |plant| %>
+        <%= link_to plant_path(plant), class: 'card-wrapper' do %>
+          <div class="card clickable">
+            <div class="card-img-top">
+              <%= cl_image_tag plant.photo, height: 225, width: 300, crop: :fill %>
+            </div>
+            <img class="avatar-bordered" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
+            <div class="card-body">
+              <div class="card-info">
+                <h5 class="card-title"><%= plant.name %></h5>
+                <p class="card-text">£<%= plant.price %></p>
+              </div>
+              <div class="rating-container">
+                <p class="card-text">Rating <%= @reviews %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

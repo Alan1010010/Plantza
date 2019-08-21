@@ -10,9 +10,10 @@
       </div>
       <div class="additional-booking-details">
         <div class="user-info-show">
-          <img class="avatar-bordered-show" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
+          <div class="show-avatar">
+          <%= render './shared/avatar-show', user: @plant.user %>
+          </div>
           <span class="user-contact-show">
-            <p>User:<%= @user %></p>
           </span>
         </div>
         <div class="plant-description-show">
@@ -25,7 +26,6 @@
       <%= simple_form_for [@plant, @booking] do |f| %>
         <%= f.input :start_date%>
         <%= f.input :end_date %>
-        <%= f.input :status %>
         <div class="buttons-proceed">
           <%= f.button :submit, class: "btn-success" %>
           <%= link_to "Back to plants", plants_path, class: "btn btn-primary" %>
