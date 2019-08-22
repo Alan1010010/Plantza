@@ -1,6 +1,6 @@
 <div class="cards">
   <% @bookings.each do |booking| %>
-    <%= link_to plant_booking_path(booking, booking.plant), class: 'card-wrapper' do %>
+    <%= link_to plant_booking_path(booking.plant, booking), class: 'card-wrapper' do %>
       <div class="card clickable">
         <div class="card-img-top">
           <%= cl_image_tag booking.plant.photo, height: 225, width: 300, crop: :fill %>
