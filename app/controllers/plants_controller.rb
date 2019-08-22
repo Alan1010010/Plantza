@@ -36,6 +36,13 @@ class PlantsController < ApplicationController
     skip_authorization
   end
 
+  def destroy
+    @plant = Plant.find(params[:id])
+    authorize @plant
+    @plant.destroy
+    redirect_to my_plants_path
+  end
+
   private
 
   def plant_params
