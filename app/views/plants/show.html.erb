@@ -32,14 +32,17 @@
         <%= link_to "Back to plants", plants_path, class: "btn btn-primary" %>
       <% end %>
       <% end %>
+      <% if @plant.user == current_user %>
+      <p><strong>Hey <%= current_user.firstname %>, this is your plant!</strong></p>
+      <% end %>
+      <% if policy(@plant).destroy? %>
+      <%= link_to "Delete Plant", plant_path, class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+      <% if policy(@plant).update? %>
+      <%= link_to "Update Plant", edit_plant_path, class: "btn btn-info" %>
+      <% end %>
       </div>
     </div>
   </div>
-    <% if policy(@plant).destroy? %>
-      <%= link_to "Delete Plant", plant_path, class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
-    <% if policy(@plant).update? %>
-      <%= link_to "Update Plant", edit_plant_path, class: "btn btn-info" %>
-    <% end %>
 </div>
 
