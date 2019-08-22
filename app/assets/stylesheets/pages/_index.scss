@@ -5,19 +5,39 @@
 h1 {
   margin-left: 50px;
 }
+
 .content {
   display: flex;
-  margin-right: 50px;
   justify-content: space-around;
+}
+
+.cards {
+  z-index: -1;
+}
+
+.map-container {
+  border-left: 1px solid;
+  border-color: rgba(52, 58, 64, 0.3);
+  height: 657px;
+  position: sticky;
+  top: 131px;
 }
 
 #map {
   border-radius: 5px;
-  margin-bottom: 100px;
   box-shadow: 4px 8px 8px #888888;
-  position: sticky;
-  top: 0;
+
 }
+
+.header-index {
+  position: sticky;
+  top: 60px;
+  border-bottom: 1px solid;
+  border-color: rgba(52, 58, 64, 0.3);
+  background-color: #F4F4F4;
+}
+
+
 
 @import "show"
 
