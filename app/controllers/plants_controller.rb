@@ -3,6 +3,13 @@ class PlantsController < ApplicationController
   before_action :set_plant, only: [:show, :edit, :update]
 
   def index
+    @plants = Plant.geocoded
+    @markers = @plants.map do |plant|
+      {
+        lat: plant.latitude,
+        lng: plant.longitude
+      }
+    end
     if params[:search].blank?
       @plants = policy_scope(Plant).order(created_at: :desc)
     else
