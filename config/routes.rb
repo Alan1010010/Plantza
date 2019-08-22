@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :plants do
-    resources :bookings, only: [:create]
+    resources :bookings, only: [:create, :update, :edit, :show]
   end
   get "my_plants", to: 'plants#my_plants'
   resources :bookings, only: [:index]
