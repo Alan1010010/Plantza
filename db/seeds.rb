@@ -5,10 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-@user = User.first
-10.times do 
-  @plant = Plant.new(name: 'Ficus', address: 'London', price: 30)
-  @plant.user = @user
-  @plant.save
+Booking.destroy_all
+Plant.destroy_all
+User.destroy_all
+user = User.create!(email: 'test@test.com', password: 123123)
+10.times do
+  plant = Plant.new(name: 'Ficus', address: 'London', price: 30)
+  plant.user = user
+  plant.save!
 end

@@ -18,7 +18,9 @@ gem 'webpacker'
 gem 'devise'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
+gem 'pg_search'
 gem "simple_calendar", "~> 2.0"
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

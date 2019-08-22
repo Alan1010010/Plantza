@@ -3,17 +3,26 @@ class PlantsController < ApplicationController
   before_action :set_plant, only: [:show, :edit, :update]
 
   def index
-    @plants = Plant.geocoded
+    if params[:navsearch].blank? && params[:search].blank? && params[:from].blank? && params[:to].blank?
+      @plants = policy_scope(Plant).order(created_at: :desc)
+    else
+      @plants = policy_scope(Plant)
+      # @plants = @plants.where("name ILIKE ?", "%#{params[:navsearch]}%").order(created_at: :desc) if params[:navsearch].present?
+      @plants = @plants.search_name_and_description(params[:navsearch]) if params[:navsearch].present?
+      if params[:to]&.any? && params[:from]&.any? && !params[:to][0].blank? && !params[:from][0].blank?
+        from = Date.parse(params[:from][0]).beginning_of_day
+        to = Date.parse(params[:to][0]).end_of_day
+        relevant_bookings = Booking.where(start_date: from..to).or(Booking.where(end_date: from..to)).or(Booking.where("start_date < ? AND end_date > ?", from, to))
+        ids = relevant_bookings.map(&:plant_id)
+        @plants = @plants.where.not(id: ids)
+      end
+      @plants = @plants.near(params[:search], 10) if params[:search].present?
+    end
     @markers = @plants.map do |plant|
       {
         lat: plant.latitude,
         lng: plant.longitude
       }
-    end
-    if params[:search].blank?
-      @plants = policy_scope(Plant).order(created_at: :desc)
-    else
-      @plants = policy_scope(Plant).where("name ILIKE ?", params[:search]).order(created_at: :desc)
     end
   end
 
