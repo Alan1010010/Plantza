@@ -2,12 +2,21 @@
 @import "home";
 @import "pages/bookings-index";
 
+h1 {
+  margin-left: 50px;
+}
+.content {
+  display: flex;
+  margin-right: 50px;
+  justify-content: space-around;
+}
 
 #map {
   border-radius: 5px;
-  margin-left: 250px;
   margin-bottom: 100px;
   box-shadow: 4px 8px 8px #888888;
+  position: sticky;
+  top: 0;
 }
 
 @import "show"

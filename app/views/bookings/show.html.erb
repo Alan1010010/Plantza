@@ -20,27 +20,22 @@
           <p><strong>Description</strong></p>
           <p><%= @plant.description %></p>
         </div>
+      <% if policy(@booking).destroy? %>
+        <%= link_to "Cancel booking", plant_path, class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+      <% if policy(@booking).update? %>
+        <%= link_to "Update booking", edit_plant_path, class: "btn btn-info" %>
+      <% end %>
       </div>
-    </div>
-    <div class="proceeding-options">
-      <% unless @plant.user == current_user %>
-          <%= simple_form_for [@plant, @booking] do |f| %>
-          <%= f.input :start_date%>
-          <%= f.input :end_date %>
-      <div class="buttons-proceed">
-        <%= f.button :submit, class: "btn-success" %>
-        <%= link_to "Back to plants", plants_path, class: "btn btn-primary" %>
-      <% end %>
-      <% end %>
-      <% if @plant.user == current_user %>
-      <p><strong>Hey <%= current_user.firstname %>, this is your plant!</strong></p>
-      <% end %>
-      <% if policy(@plant).destroy? %>
-      <%= link_to "Delete Plant", plant_path, class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
-      <% if policy(@plant).update? %>
-      <%= link_to "Update Plant", edit_plant_path, class: "btn btn-info" %>
-      <% end %>
+      <div class="calendar">
+        <%= month_calendar(attribute: :start_date, end_attribute: :end_date,  events: @booking.plant.bookings) do |date, booking| %>
+          <%= date %>
+          <% booking.each do |booking| %>
+            <div class="booked-days">
+              <h6>Booked</h6>
+            </div>
+          <%end %>
+        <% end %>
       </div>
     </div>
   </div>
