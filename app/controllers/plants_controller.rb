@@ -1,5 +1,6 @@
 class PlantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_plant, only: [:show, :edit, :update]
 
   def index
     @plants = Plant.geocoded
@@ -17,7 +18,6 @@ class PlantsController < ApplicationController
   end
 
   def show
-    @plant = Plant.find(params[:id])
     @booking = Booking.new
     authorize @plant
   end
@@ -38,12 +38,33 @@ class PlantsController < ApplicationController
     end
   end
 
+  def edit
+    authorize @plant
+  end
+
+  def update
+    authorize @plant
+    @plant.update(plant_params)
+    redirect_to plant_path(@plant)
+  end
+
   def my_plants
     @plants = current_user.plants
     skip_authorization
   end
 
+  def destroy
+    @plant = Plant.find(params[:id])
+    authorize @plant
+    @plant.destroy
+    redirect_to my_plants_path
+  end
+
   private
+
+  def set_plant
+    @plant = Plant.find(params[:id])
+  end
 
   def plant_params
     params.require(:plant).permit(:name, :address, :description, :price, :photo)
