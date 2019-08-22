@@ -1,4 +1,4 @@
-<div class="container-fluid">
+ <div class="container-fluid">
   <div class="left-side-show carousel-imgs booking-form">
     <%= render './shared/carousel' %>
   </div>
@@ -29,10 +29,10 @@
       </div>
       <div class="calendar">
         <%= month_calendar(attribute: :start_date, end_attribute: :end_date,  events: @booking.plant.bookings) do |date, booking| %>
-          <%= date %>
+          <%= date.day %>
           <% booking.each do |booking| %>
             <div class="booked-days">
-              <h6>Booked</h6>
+              <h6><strong>Booked</strong></h6>
             </div>
           <%end %>
         <% end %>
