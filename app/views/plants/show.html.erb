@@ -23,17 +23,23 @@
       </div>
     </div>
     <div class="proceeding-options">
-      <%= simple_form_for [@plant, @booking] do |f| %>
-        <%= f.input :start_date%>
-        <%= f.input :end_date %>
-        <div class="buttons-proceed">
-          <%= f.button :submit, class: "btn-success" %>
-          <%= link_to "Back to plants", plants_path, class: "btn btn-primary" %>
-        </div>
+      <% unless @plant.user == current_user %>
+          <%= simple_form_for [@plant, @booking] do |f| %>
+          <%= f.input :start_date%>
+          <%= f.input :end_date %>
+      <div class="buttons-proceed">
+        <%= f.button :submit, class: "btn-success" %>
+        <%= link_to "Back to plants", plants_path, class: "btn btn-primary" %>
       <% end %>
+      <% end %>
+      </div>
+    </div>
   </div>
+    <% if policy(@plant).destroy? %>
+      <%= link_to "Delete Plant", plant_path, class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+    <% if policy(@plant).update? %>
+      <%= link_to "Update Plant", edit_plant_path, class: "btn btn-info" %>
+    <% end %>
 </div>
 
-<% if policy(@plant).destroy? %>
-  <%= link_to "Delete Plant", plant_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
