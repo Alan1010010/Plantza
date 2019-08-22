@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="left-side-show carousel-imgs booking-form">
+    <%= render './shared/carousel' %>
+  </div>
+  <div class="right-side-show plant-infos">
+    <div class="main-info-show">
+      <div class="plant-basic-info">
+        <h1><%= @plant.name %></h1>
+        <h3><%= @plant.address %>, (£<%= @plant.price %>)</h3>
+      </div>
+      <div class="additional-booking-details">
+        <div class="user-info-show">
+          <div class="show-avatar">
+          <%= render './shared/avatar-show', user: @plant.user %>
+          </div>
+          <span class="user-contact-show">
+          </span>
+        </div>
+        <div class="plant-description-show">
+          <p><strong>Description</strong></p>
+          <p><%= @plant.description %></p>
+        </div>
+      <% if policy(@booking).destroy? %>
+        <%= link_to "Cancel booking", plant_path, class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+      <% if policy(@booking).update? %>
+        <%= link_to "Update booking", edit_plant_path, class: "btn btn-info" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
