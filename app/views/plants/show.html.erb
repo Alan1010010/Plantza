@@ -12,10 +12,9 @@
         <div class="additional-booking-details">
           <div class="user-info-show">
             <div class="show-avatar">
-            <%= render './shared/avatar-show', user: @plant.user %>
+              <%= render './shared/avatar-show', user: @plant.user %>
             </div>
-            <span class="user-contact-show">
-            </span>
+            <span class="user-contact-show"></span>
           </div>
           <div class="plant-description-show">
             <p><strong>Description</strong></p>
@@ -33,38 +32,28 @@
         </div>
       </div>
       <div class="proceeding-options">
-        <%= simple_form_for [@plant, @booking] do |f| %>
-          <%= f.input :start_date%>
-          <%= f.input :end_date %>
-          <div class="buttons-proceed">
-            <%= f.button :submit, class: "btn-success" %>
-            <%= link_to "Back to plants", plants_path, class: "btn btn-primary" %>
-          </div>
+        <% unless @plant.user == current_user %>
+            <%= simple_form_for [@plant, @booking] do |f| %>
+            <%= f.input :start_date%>
+            <%= f.input :end_date %>
+        <div class="buttons-proceed">
+              <%= f.button :submit, class: "btn-success" %>
+              <%= link_to "Back to plants", plants_path, class: "btn btn-primary" %>
+            <% end %>
         <% end %>
+        <% if @plant.user == current_user %>
+          <p><strong>Hey <%= current_user.firstname %>, this is your plant!</strong></p>
+        <% end %>
+        <% if policy(@plant).destroy? %>
+          <%= link_to "Delete Plant", plant_path, class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+        <% if policy(@plant).update? %>
+          <%= link_to "Update Plant", edit_plant_path, class: "btn btn-info" %>
+        <% end %>
+        </div>
       </div>
     </div>
-    <div class="proceeding-options">
-      <% unless @plant.user == current_user %>
-          <%= simple_form_for [@plant, @booking] do |f| %>
-          <%= f.input :start_date%>
-          <%= f.input :end_date %>
-      <div class="buttons-proceed">
-        <%= f.button :submit, class: "btn-success" %>
-        <%= link_to "Back to plants", plants_path, class: "btn btn-primary" %>
-      <% end %>
-      <% end %>
-      <% if @plant.user == current_user %>
-      <p><strong>Hey <%= current_user.firstname %>, this is your plant!</strong></p>
-      <% end %>
-      <% if policy(@plant).destroy? %>
-      <%= link_to "Delete Plant", plant_path, class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
-      <% if policy(@plant).update? %>
-      <%= link_to "Update Plant", edit_plant_path, class: "btn btn-info" %>
-      <% end %>
-      </div>
-    </div>                    
-  </div>
+  </div>                    
   <div class="reviews-container">
     <div class="reviews-header">
       <h3><strong>Reviews</strong></h3>
