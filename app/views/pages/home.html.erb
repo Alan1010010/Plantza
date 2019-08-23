@@ -70,7 +70,6 @@
       <% @top_plants.each do |plant| %>
         <%= link_to plant_path(plant), class: 'card-wrapper' do %>
           <div class="card clickable">
-              <%= render './shared/avatar', user: plant.user %>
             <div class="card-img-top">
               <%= cl_image_tag plant.photo, height: 225, width: 300, crop: :fill %>
             </div>
