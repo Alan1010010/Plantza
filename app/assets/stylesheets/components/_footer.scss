@@ -1,0 +1,32 @@
+.plantza-footer {
+  height: 120px;
+  width: 100%;
+  background-color: rgb(230,230,230);
+  margin-top: 40px;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer li {
+  display: inline-block;
+}
+
+footer i {
+  font-size: 40px;
+  color: rgb(180,180,180);
+  padding-right: 20px;
+  padding-right: 20px;
+}
+
+footer i:hover{
+  color: rgb(140,140,140);
+  transition: 0.3s;
+}
+
+.footer-txt {
+  color: rgb(180,180,180);
+  text-align: center;
+  padding-top: 20px;
+}
