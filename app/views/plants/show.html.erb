@@ -63,12 +63,12 @@
       <%= link_to "Update Plant", edit_plant_path, class: "btn btn-info" %>
       <% end %>
       </div>
-    </div>                    
+    </div>
   </div>
   <div class="reviews-container">
     <div class="reviews-header">
       <h3><strong>Reviews</strong></h3>
-      <% if current_user.reviews.find_by(plant: @plant).nil? %>
+      <% if current_user&.reviews&.find_by(plant: @plant).nil? %>
         <div class="reviews-btn btn btn-primary">
           <a href="#modal"> Leave a Review </a>
         </div>
@@ -82,7 +82,7 @@
     <% end%>
     <div id="modal" class="popup">
       <%= render 'reviews/form', plant: @plant, review: @review %>
-    </div>  
+    </div>
   </div>
 </div>
 
