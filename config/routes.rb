@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :plants, only: [:show, :new, :create, :index] do
     resources :bookings, only: [:create]
+  resources :plants do
+    resources :bookings, only: [:create, :update, :edit, :show]
     resources :reviews, only: [ :new, :create ]
   end
   get "my_plants", to: 'plants#my_plants'
