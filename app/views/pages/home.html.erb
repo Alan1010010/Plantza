@@ -4,13 +4,15 @@
       <h1>
         Renting plants has never been easier
       </h1>
-      <h5>
-        Plantza facilitates the rental of plants for all occassions. Jungle-themed birthday party? Temporary air purification? We've got you covered.
+      <p>
+      </p>
+      <h5 class="home-h5">
+        <span id="banner-typed-text"></span>
       </h5>
       <div class="search">
-        <h3>
+        <h5>
           Start your search
-        </h3>
+        </h5>
           <%= form_tag plants_path, method: :get do %>
             <div class="form-row">
               <div class="col form-group">
@@ -23,11 +25,11 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="address">Location</label>
+              <label for="address">City</label>
               <%= text_field_tag :search,
                 params[:search],
                 class: "form-control",
-                placeholder: "Enter an address"
+                placeholder: "Paris..."
               %>
             </div>
           <%= submit_tag "Search", class: "btn btn-primary" %>

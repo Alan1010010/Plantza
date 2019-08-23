@@ -14,6 +14,8 @@
 .cards {
   // z-index: -1;
   flex-grow: 1;
+  justify-content: space-around;
+
 }
 
 .map-container {
@@ -31,6 +33,13 @@
   position: sticky;
   top: 0;
 }
+
+.index-header {
+  font-weight: bolder;
+  margin-left: 51PX;
+  margin-top: 10px;
+}
+
 
 // .header-index {
 //   position: sticky;
