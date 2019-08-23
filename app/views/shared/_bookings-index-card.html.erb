@@ -11,10 +11,15 @@
             <p class="card-text">£<%= booking.plant.price %></p>
           </div>
           <div class="status-container">
-            <p class="card-text">Status: <%= booking.status %></p>
+            <span class="badge badge-warning"><%= booking.status %></span>
           </div>
           <div class="rating-container">
-            <p class="card-text">Rating: <%= @rating %></p>
+            <% booking.plant.reviews.average_rating.times do %>
+              <i class="fa fa-star"></i>
+            <% end %>
+            <% (5 - booking.plant.reviews.average_rating).times do %>
+              <i class="far fa-star"></i>
+            <% end %>
           </div>
         </div>
       </div>
