@@ -2,16 +2,18 @@
 @import "home";
 @import "pages/bookings-index";
 
-h1 {
-  margin-left: 50px;
-}
+// h1 {
+//   margin-left: 50px;
+// }
 
 .content {
-  justify-content: space-around;
+  display: flex;
+  // justify-content: space-around;
 }
 
 .cards {
-  z-index: -1;
+  // z-index: -1;
+  flex-grow: 1;
 }
 
 .map-container {
@@ -23,18 +25,20 @@ h1 {
 }
 
 #map {
-  border-radius: 5px;
-  box-shadow: 4px 8px 8px #888888;
-
-}
-
-.header-index {
+  // border-radius: 5px;
+  // box-shadow: 4px 8px 8px #888888;
+  height: 100vh;
   position: sticky;
-  top: 60px;
-  border-bottom: 1px solid;
-  border-color: rgba(52, 58, 64, 0.3);
-  background-color: #F4F4F4;
+  top: 0;
 }
+
+// .header-index {
+//   position: sticky;
+//   top: 60px;
+//   border-bottom: 1px solid;
+//   border-color: rgba(52, 58, 64, 0.3);
+//   background-color: #F4F4F4;
+// }
 
 
 
