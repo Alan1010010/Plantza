@@ -66,25 +66,33 @@
       Most popular plants
     </h2>
     <div class="cards">
+
       <% @top_plants.each do |plant| %>
         <%= link_to plant_path(plant), class: 'card-wrapper' do %>
           <div class="card clickable">
+              <%= render './shared/avatar', user: plant.user %>
             <div class="card-img-top">
               <%= cl_image_tag plant.photo, height: 225, width: 300, crop: :fill %>
             </div>
-            <img class="avatar-bordered" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
             <div class="card-body">
               <div class="card-info">
                 <h5 class="card-title"><%= plant.name %></h5>
                 <p class="card-text">£<%= plant.price %></p>
               </div>
               <div class="rating-container">
-                <p class="card-text">Rating <%= @reviews %></p>
+                <p class="card-text">Rating <%= plant.reviews.average_rating %></p>
+                <% plant.reviews.average_rating.times do %>
+                  <i class="fa fa-star"></i>
+                <% end %>
+                <% (5 - plant.reviews.average_rating).times do %>
+                  <i class="far fa-star"></i>
+                <% end %>
               </div>
             </div>
           </div>
         <% end %>
       <% end %>
+
     </div>
   </div>
 </div>
