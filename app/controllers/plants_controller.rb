@@ -27,6 +27,8 @@ class PlantsController < ApplicationController
   end
 
   def show
+    @plant = Plant.find(params[:id])
+    @review = Review.new(params[:plant_id])
     @booking = Booking.new
     authorize @plant
   end
