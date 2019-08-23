@@ -52,11 +52,12 @@
 .reviews-container {
   padding-left: 20px;
   margin-bottom: 20px;
+
 }
 
 .reviews-header {
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 
 .simple-calendar {
