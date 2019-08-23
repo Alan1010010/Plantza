@@ -12,7 +12,6 @@
             <p class="card-text">£<%= plant.price %></p>
           </div>
           <div class="rating-container">
-            <p class="card-text">Rating <%= plant.reviews.average_rating %></p>
             <% plant.reviews.average_rating.times do %>
               <i class="fa fa-star"></i>
             <% end %>
