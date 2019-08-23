@@ -1,17 +1,21 @@
-<br>
+<div class="header-index">
 <h1>Available Plants</h1>
+</div>
+
 <div class="content">
-  <div class="container-fluid">
-      <%= render './shared/card' %>
+  <div class="cards">
+    <div class="container-fluid">
+        <%= render './shared/card' %>
+    </div>
   </div>
-    <div class="map-container">
-      <div
+  <div class="map-container">
+    <div
         id="map"
-        style="width: 500px;
-        height: 600px;
+        style="width: 600px;
+        height: 682px;
         align-content: center;"
         data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-      ></div>
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 </div>
