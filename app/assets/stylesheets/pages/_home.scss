@@ -1,9 +1,16 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
 .masthead {
   width: 100%
 }
 
 .padded-top-wrapper {
   padding-top: 60px;
+  flex-grow: 1;
 }
 
 .how-it-works {
@@ -21,5 +28,5 @@
 }
 
 .search{
-      box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
 }
