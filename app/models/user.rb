@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :reviews
   has_many :booked_plants, through: :bookings, source: :plant
+  validates :firstname, :lastname, :avatar, presence: true
 end
