@@ -18,10 +18,12 @@ class PlantsController < ApplicationController
       end
       @plants = @plants.near(params[:search], 10) if params[:search].present?
     end
+    # @plants = Plant.geocoded
     @markers = @plants.map do |plant|
       {
         lat: plant.latitude,
-        lng: plant.longitude
+        lng: plant.longitude,
+        #infoWindow: render_to_string(partial: "info_window", locals: { plant: plant })
       }
     end
   end
