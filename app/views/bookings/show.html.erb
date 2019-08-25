@@ -22,11 +22,11 @@
             <p><%= @plant.description %></p>
           </div>
         <% if policy(@booking).destroy? %>
-          <%= link_to "Cancel booking", plant_path, class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to "Cancel booking", booking_path, class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
-        <% if policy(@booking).update? %>
-          <%= link_to "Update booking", edit_plant_path, class: "btn btn-info" %>
-        <% end %>
+        <%# if policy(@booking).update? %>
+          <%# link_to "Update booking", edit_plant_booking_path, class: "btn btn-info" %>
+        <%# end %>
         </div>
         <div class="calendar">
           <%= month_calendar(attribute: :start_date, end_attribute: :end_date,  events: @booking.plant.bookings) do |date, booking| %>

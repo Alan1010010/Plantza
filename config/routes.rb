@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   resources :plants do
-    resources :bookings, only: [:create, :update, :edit, :show]
+    resources :bookings, only: [:create, :show]
     resources :reviews, only: [ :new, :create ]
   end
   get "my_plants", to: 'plants#my_plants'
-  resources :bookings, only: [:index]
+  resources :bookings, only: [:index, :destroy]
   resources :reviews, only: [:destroy]
   devise_for :users
   root to: 'pages#home'
