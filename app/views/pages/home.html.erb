@@ -73,7 +73,7 @@
         <%= link_to plant_path(plant), class: 'card-wrapper' do %>
           <div class="card clickable">
             <div class="card-img-top">
-              <%= cl_image_tag plant.photo, height: 225, width: 300, crop: :fill %>
+              <%= cl_image_tag plant.photo, height: 225, width: 298, crop: :fill %>
             </div>
            <%= render './shared/avatar', user: plant.user %>
             <div class="card-body">

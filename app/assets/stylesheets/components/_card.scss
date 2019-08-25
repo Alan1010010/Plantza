@@ -78,9 +78,6 @@
     width: 100%;
   }
 
-  .avatar-bordered {
-  }
-
   .avatar-card-posistion {
   position: absolute;
   left: 20px;
@@ -91,3 +88,28 @@
     width: 100%;
     object-fit: cover;
 }
+
+.placeholder-card-logo {
+  height: 225px;
+  width: 298px;
+  border-bottom: 1px solid whitesmoke;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+.logo-card {
+  color: #343a40;
+  font-size: 200px;
+  padding: 15px;
+}
+
+.placeholder-card-body {
+  height: 100px;
+  width: 298px;
+  text-align: center;
+}
+
+.placeholder-card-info {
+  padding: 30px;
+}
+
