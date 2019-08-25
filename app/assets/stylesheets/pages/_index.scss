@@ -6,16 +6,23 @@
 //   margin-left: 50px;
 // }
 
-.content {
+body {
   display: flex;
-  // justify-content: space-around;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
-.cards {
-  // z-index: -1;
+.padded-top-wrapper {
+  padding-top: 60px;
   flex-grow: 1;
-  justify-content: space-around;
+}
 
+.content {
+  padding-top: 20px;
+}
+
+.flex {
+  display: flex;
 }
 
 .map-container {
@@ -51,5 +58,6 @@
 
 
 
-@import "show"
+@import "show";
+@import "my_plants";
 
