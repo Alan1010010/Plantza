@@ -24,17 +24,14 @@ class BookingsController < ApplicationController
     end
   end
 
-  def edit
-    authorize @booking
-  end
-
-  def update
-    authorize @booking
-    @booking.update(booking_params)
-    redirect_to booking_path(@booking)
-  end
+  # def update
+  #   authorize @booking
+  #   @booking.update(booking_params)
+  #   redirect_to booking_path(@booking)
+  # end
 
   def destroy
+    authorize @booking
     @booking.destroy
     redirect_to bookings_path
   end

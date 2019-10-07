@@ -1,0 +1,16 @@
+<% if policy(Plant).create? %>
+  <%= link_to new_plant_path, class: "card-wrapper" do %>
+    <div class="card-placeholder">
+      <div class="card clickable">
+        <div class="placeholder-card-logo">
+          <span style="logo-card"><i class="fas fa-seedling fa-9x logo-card"></i></span>
+        </div>
+        <div class="placeholder-card-body">
+          <div class="placeholder-card-info">
+            <h5 class="card-title">Add new plant</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

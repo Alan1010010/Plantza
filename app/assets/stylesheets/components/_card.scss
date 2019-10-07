@@ -2,9 +2,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 35px;
-    justify-content: space-around;
+    margin-bottom: 35px;
   }
 
   // Smallest device
@@ -45,7 +43,6 @@
   .card.clickable {
     box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12);
     width: 300px;
-    margin: 15px
   }
 
   .card.clickable:hover {
@@ -55,6 +52,7 @@
   .card-wrapper {
     color: inherit;
     text-decoration: none;
+    margin: 15px;
   }
 
   .card-wrapper:hover {
@@ -78,9 +76,6 @@
     width: 100%;
   }
 
-  .avatar-bordered {
-  }
-
   .avatar-card-posistion {
   position: absolute;
   left: 20px;
@@ -90,4 +85,36 @@
   .card-img-top {
     width: 100%;
     object-fit: cover;
+}
+
+.placeholder-card-logo {
+  height: 225px;
+  width: 298px;
+  border-bottom: 1px solid whitesmoke;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+.logo-card {
+  color: #343a40;
+  font-size: 200px;
+  padding: 15px;
+}
+
+.placeholder-card-body {
+  height: 100px;
+  width: 298px;
+  text-align: center;
+}
+
+.placeholder-card-info {
+  padding: 30px;
+}
+
+.card-placeholder {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0px 0px 0px 0px;
+  padding-left: 0px;
 }

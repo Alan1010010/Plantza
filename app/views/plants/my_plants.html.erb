@@ -1,30 +1,12 @@
-<h1>My Plants</h1>
-
-
-<div class="cards">
-  <% @plants.each do |plant| %>
-    <%= link_to plant_path(plant), class: 'card-wrapper' do %>
-      <div class="card clickable">
-        <%= cl_image_tag plant.photo, alt: "alttext", class: "card-img-top" %>
-        <img class="avatar-bordered" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
-        <div class="card-body">
-          <div class="card-info">
-            <h5 class="card-title"><%= plant.name %></h5>
-            <p class="card-text">£<%= plant.price %></p>
-          </div>
-          <div class="card-info">
-            <p class="card-text"> <%= plant.address %></p>
-          </div>
-        </div>
-      </div>
+<div class="container content">
+  <div class="placeholder-actions"><h1>My Plants</h1>
+    <% if policy(Plant).create? %>
+      <%= link_to "New plant", new_plant_path, class: "btn btn-primary" %>
     <% end %>
-  <% end %>
+    <%= link_to "Back to plants", plants_path, class: "btn btn-primary" %>
+  </div>
+  <div class="cards">
+    <%= render './shared/card' %>
+    <%= render 'placeholder-card' %>
+  </div>  
 </div>
-
-
-<% if policy(Plant).create? %>
-  <%= link_to "New plant", new_plant_path %>
-<% end %>
-
-
-

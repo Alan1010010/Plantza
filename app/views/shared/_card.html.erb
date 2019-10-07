@@ -1,27 +1,24 @@
-<!-- <div class="cards"> -->
-  <% @plants.each do |plant| %>
-    <%= link_to plant_path(plant), class: 'card-wrapper' do %>
-      <div class="card clickable">
-          <%= render './shared/avatar', user: plant.user %>
-        <div class="card-img-top">
-          <%= cl_image_tag plant.photo, height: 225, width: 300, crop: :fill %>
+<% @plants.each do |plant| %>
+  <%= link_to plant_path(plant), class: 'card-wrapper' do %>
+    <div class="card clickable">
+        <%= render './shared/avatar', user: plant.user %>
+      <div class="card-img-top">
+        <%= cl_image_tag plant.photo, height: 225, width: 298, crop: :fill %>
+      </div>
+      <div class="card-body">
+        <div class="card-info">
+          <h5 class="card-title"><%= plant.name %></h5>
+          <p class="card-text">£<%= plant.price %></p>
         </div>
-        <div class="card-body">
-          <div class="card-info">
-            <h5 class="card-title"><%= plant.name %></h5>
-            <p class="card-text">£<%= plant.price %></p>
-          </div>
-          <div class="rating-container">
-            <% plant.reviews.average_rating.times do %>
-              <i class="fa fa-star"></i>
-            <% end %>
-            <% (5 - plant.reviews.average_rating).times do %>
-              <i class="far fa-star"></i>
-            <% end %>
-          </div>
+        <div class="rating-container">
+          <% plant.reviews.average_rating.times do %>
+            <i class="fa fa-star"></i>
+          <% end %>
+          <% (5 - plant.reviews.average_rating).times do %>
+            <i class="far fa-star"></i>
+          <% end %>
         </div>
       </div>
-    <% end %>
+    </div>
   <% end %>
-<!-- </div>
- -->
+<% end %>

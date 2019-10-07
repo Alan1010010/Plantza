@@ -1,17 +1,14 @@
-<h1>Your Bookings</h1>
-
-
-<div class="bookings-title">
-  <h2>Upcoming bookings</h2>
+<div class="container content">
+  <h1>My Bookings</h1>
+  <%= link_to "Back to plants", plants_path, class: "btn btn-primary" %>
+  <div class="bookings-title">
+    <h2>Upcoming bookings</h2>
+  </div>
+  <%= render './shared/bookings-index-card' %>
+  <div class="bookings-title">
+    <h2>Previous bookings</h2>
+  </div>
 </div>
-
-<%= render './shared/bookings-index-card' %>
-
-
-<div class="bookings-title">
-  <h2>Previous bookings</h2>
-</div>
-
 
 
 
